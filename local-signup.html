@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Juniper | Sign up</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Segment -->
+		<script>
+			!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="yvb9S8BqaHvoHNDaOaNnlCE6ngU4iF58";;analytics.SNIPPET_VERSION="4.15.3";
+				analytics.load("yvb9S8BqaHvoHNDaOaNnlCE6ngU4iF58");
+				analytics.page();
+				analytics.ready(function () {
+					ga('require', 'linker');
+					ga('linker:autoLink', ['junipermarket.com','localhost']);
+				});
+			}}();
+		</script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-NJVDXF7");
+    </script>
+    <!-- End Google Tag Manager -->
+    <link
+      href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://images.junipercdn.com/application-assets/juniper-market/images/JuniperMarket-Favicon.svg"
+    />
+    <link
+      rel="alternate icon"
+      type="image/x-icon"
+      href="https://images.junipercdn.com/application-assets/juniper-market/images/JuniperMarket-Favicon.png"
+    />
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NJVDXF7"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <style>
+      /* MODIFICATIONS TO AZURE B2C SELECTORS */
+      /* attr is the wrapper that b2c uses */
+      /* inputs are in a list */
+      #api {
+        position: relative;
+      }
+      .attr ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      /* apply to all inputs except the checkbox */
+      .attr input:not(#extension_TermsAccepted_true) {
+        width: 100%;
+        height: 56px;
+        background-color: transparent;
+        border: 1px solid #e7e4e0;
+        padding: 15px;
+        border-radius: 3px;
+        -webkit-appearance: none;
+      }
+      /* this is to show the terms and conditions */
+      label[for="extension_TermsAccepted_true"] {
+        display: inline-block !important;
+        margin-left: 25px;
+        font-size: 12px;
+        color: #323d3b;
+        font-weight: normal;
+        margin-top: -17px;
+        margin-bottom: 15px;
+      }
+      /* inputs in the form */
+      .attr input::placeholder {
+        color: #968c83;
+        size: 16px;
+        text-transform: lowercase;
+      }
+
+      .attr input:focus {
+        outline: none;
+      }
+      /* dont show the what is this? link */
+      .attr .helpLink {
+        display: none;
+      }
+      /* possible error divs on top form */
+      #passwordEntryMismatch,
+      #requiredFieldMissing,
+      #fieldIncorrect,
+      #claimVerificationServerError {
+        margin-top: 15px;
+      }
+
+      /* wraps each iinput, did it to make error messages absolute and appear better */
+      .attrEntry {
+        margin-top: 15px;
+        position: relative;
+      }
+
+      /* error message text */
+      .attrEntry .itemLevel {
+        /* position: absolute; */
+        color: #b00020;
+        top: 0px;
+        font-size: 12px;
+      }
+      /*  modal that says processing info */
+      #simplemodal-overlay,
+      #simplemodal-container,
+      .simplemodal-container {
+        color: #fff;
+      }
+      /* for some reason in local signup it doesnt add a <p> in item level so error messages dont have same padding */
+      .error.itemLevel.show {
+        padding: 0 0 10px;
+      }
+      .error {
+        color: #b00020;
+        text-transform: lowercase;
+      }
+      /* this is the error under the button when a user exists for example */
+      .verifying-modal {
+        display: none;
+        text-transform: lowercase;
+      }
+      /* FORM BUTTON IS A CLASS THAT WE CREATED BUT CONTINUE ID IS FROM B2C */
+      .form-button > button,
+      #continue {
+        border-radius: 24px;
+        box-shadow: 0 4px 8px 0 rgba(44, 39, 56, 0.08),
+          0 2px 4px 0 rgba(44, 39, 56, 0.08);
+        background: #0a544a;
+        color: #fff;
+        outline: none;
+        border: 1px solid #0a544a;
+        height: 32px;
+        width: 100%;
+      }
+      /* wraps create button, use to be a cancel in there */
+      .buttons {
+        text-align: center;
+      }
+      /* create button */
+      #continue {
+        width: 257px;
+        margin: auto;
+      }
+      /* dont show an intro paragraph they have, the cancel button and labels in forms except for the one in checkbox */
+      .intro,
+      #cancel,
+      .attr label:not(#True_option) {
+        display: none;
+      }
+
+      /* for checkbox */
+      #extension_TermsAccepted_true {
+        vertical-align: top;
+      }
+      /* checkbox text */
+      #True_option {
+        font-size: 12px;
+        width: 85%;
+        margin-left: 15px;
+        color: #323d3b;
+        font-weight: normal;
+      }
+
+      /* OUR CONTENT */
+      .header-wrapper {
+        position: relative;
+        width: 100%;
+        height: 85px;
+      }
+      
+      .close-form {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 85px;
+        width: 85px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo-container {
+        max-width: 250px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0 35px;
+      }
+      
+      .logo-container a {
+        width: 100%;
+        height: 85px;
+        display: flex;
+      }
+      .logo-container img {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        width: auto;
+      }
+      .register-content-wrapper {
+        max-width: 785px;
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        padding: 0 30px;
+        font-family: "Poppins", sans-serif;
+      }
+      
+      .register-content-title-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+      }
+      
+      .register-content-title-container {
+        position: relative;
+      }
+
+      .register-content-title {
+        font-size: 34px;
+        color: #323d3b;
+        font-weight: 300;
+        display: flex;
+        text-align: center;
+      }       
+
+      #api .buttons {
+        position: relative;
+      }
+      .register-content-redirect-signin,
+      .register-content-redirect-signin-seller {
+        display: flex;
+        position: absolute;
+        top: 55px;
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.87);
+        width: 100%;
+        justify-content: center;
+      }
+      .register-content-redirect-signin-seller {
+        top: 105px;
+        align-items: center;
+        flex-direction: column; 
+      }
+      /* Are you a vendor section */
+      .register-content-redirect-vendor {
+        margin-bottom: 25px;
+        font-size: 20px;
+        position: relative;
+        display: flex;
+      }       
+
+      /* link inside 'Are you a vendor' section tooltip */
+      .register-content-tooltip-link {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+      .register-content-tooltip-link:hover {
+        color: #ffffff;
+      }
+
+      .register-content-redirect-signin-link,
+      .register-content-redirect-signin-seller-link {
+        margin-left: 10px;
+        color: #326d62;
+        font-size: 14px;
+        width: 50px;
+        cursor: pointer;
+      }
+      .register-content-redirect-signin-seller-link {
+        width: max-content;
+      }
+      .register-content-redirect-signin-link a,
+      .register-content-redirect-signin-seller-link a {
+        color: #326d62;
+        text-decoration: none;
+      }
+      .register-content-redirect-signin-seller-link a {
+        padding: 8px 20px;
+        border-radius: 24px;
+        border:1px solid #326d62;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px 0 rgba(44, 39, 56, 0.08), 0 2px 4px 0 rgba(44, 39, 56, 0.08);
+      }
+      
+      .register-content-forms-wrapper {
+        background-color: rgba(231, 228, 224, 0.1);
+        margin-top: 20px;
+        padding: 0 0 190px;
+        display: flex;
+        height: auto;
+        margin-bottom: 20px;
+      }
+      .register-content-form-info {
+        margin: 0 auto 30px;
+        max-width: 538px;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.87);
+      }
+      #api {
+        padding: 0 137px;
+      }     
+      .register-content-form-container {
+        flex-grow: 1;
+        max-width: 100%;
+        position: relative;
+        z-index: 2;
+      }
+      
+      .register-content-form-title {
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.87);
+        text-align: center;
+        font-weight: 500;
+      }
+      .register-content-form-subtitle {
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.87);
+        margin: 25px 40px 30px;
+        text-align: center;
+        font-weight: 500;
+      }
+      
+      .register-content-market-container {
+        flex-grow: 1;
+        max-width: 50%;
+        padding: 0 80px;
+      }
+      
+      /* TOOLTIP ICON */
+      .register-content-tooltip-wrapper {
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      
+      .register-content-tooltip-input {
+        position: absolute;
+        bottom: 0;
+        right: 15px;        
+        height: 54px;
+      }
+
+      .register-content-title-tooltip {
+        display: inline-flex;
+        margin-left: 10px;
+      }
+
+      .register-content-tooltip-wrapper > div:first-child {
+        background: #24534c;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #24534c;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 13px;
+      }
+      .register-content-tooltip-expand-wrapper {
+        position: absolute;
+        background: #326d62;
+        top: 50px;
+        right: 0;
+        height: auto;
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        color: #fff;
+        padding: 10px;
+        border-radius: 4px;
+        visibility: hidden;
+        z-index: 5;
+        font-weight: 500;
+      }
+      .register-content-tooltip-wrapper:hover
+        > .register-content-tooltip-expand-wrapper {
+        visibility: visible;
+      }
+      .register-content-tooltip-wrapper
+        > .register-content-tooltip-expand-wrapper.clicked {
+        visibility: visible;
+      }
+      .register-content-tooltip-expand-wrapper:before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 100%;
+        width: 0;
+        height: 0;
+      }
+      .register-content-tooltip-expand-wrapper:before {
+        right: 15px;
+        border: 11px solid transparent;
+        border-bottom-color: #326d62;
+      }
+
+      .register-content-or-wrapper {
+        position: absolute;
+        top: 40%;
+        right: -15px;
+        background: #fcfdfb;
+        z-index: 3;
+        font-size: 18px;
+        color: #565656;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+      }
+        /* are you a vendor tooltip */
+      .register-content-redirect-vendor-tooltip .register-content-tooltip-expand-wrapper {
+        top: -150px;
+        left: 165px;
+      }
+      .register-content-redirect-vendor-tooltip .register-content-tooltip-expand-wrapper:before {
+        left: 30px;
+        bottom: -20px;
+        border-color: transparent;
+        border-top-color: #326d62;
+      }
+
+      .register-content-market-title {
+        text-align: center;
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.87);
+        font-weight: 500;
+      }
+      .register-content-market-subtitle {
+        margin-top: 5px;
+      }
+      .register-content-market-subtitle > p {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.87);
+        font-weight: 500;
+      }
+
+      .register-content-market-button {
+        margin-top: 35px;
+        text-align: center;
+        width: 257px;
+        margin: 35px auto 0 auto;
+      }
+      .register-content-market-logos {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 95px 0 0 0;
+      }
+      .register-content-market-logos table {
+        width: 100%;
+      }
+      .register-content-market-logos table td {
+        padding: 10px 20px;
+      }
+      .register-content-market-logos table td img {
+        max-width: 100%;
+      }
+      .market-logo {
+        width: 172px;
+        height: 44px;
+        flex-grow: 1;
+        flex-basis: 50%;
+        margin: 0 0 30px 0;
+        text-align: center;
+      }
+      
+      .market-logo > img {
+        height: auto;
+        width: auto;
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .footer-wrapper {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 50px;
+      }
+      .footer-wrapper a {
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .checkbox-link,
+      .footer-wrapper a {
+        color: #326d62;
+      }
+
+      /* PROGRESS BAR */
+      .register-progress-bar {
+        display: flex;
+        width: calc(100% + 40px);
+        padding-left: 0;
+        margin-top: 30px;
+        list-style: none;
+        margin-left: -20px;
+        justify-content: space-between;
+        position:relative;
+      }      
+      .register-progress-bar::before {
+        content: '';
+        top: 5px;
+        left: 20px;
+        height: 4px;
+        display: block;
+        position: absolute;
+        width: calc(100% - 40px);
+        background-color: #e7e4e0;
+      }
+      .register-progress-bar-item {
+        z-index: 1;
+        display: flex;
+        width: 47px;
+        font-size: 9px;
+        text-align: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .register-progress-bar-dot {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        background-color: #e7e4e0;
+      }
+      .register-progress-bar-dot--active {
+        background-color: #326d62;
+      }
+
+      /* RESPONSIVE */
+      
+      /* Screen width max: 985px */
+      @media only screen and (max-width: 985px) {
+        .register-content-wrapper {
+          padding: 0;
+        }
+        .register-content-redirect-signin,
+        .register-content-redirect-signin-signin,
+        .register-content-redirect-signin-link,
+        .register-content-redirect-signin-seller,
+        .register-content-redirect-signin-seller-link {
+          font-size: 12px;
+        }
+        .register-content-redirect-signin-seller-link {
+          margin-left: 6px;
+        }
+        .footer-wrapper {
+          margin-top: -5px;
+        }
+        .register-content-form-container {
+          border-right: none;
+          padding: 0;
+          max-width: 100%;
+          padding-bottom: 60px;
+        }
+        .register-content-market-container {
+          padding: 0;
+          max-width: 100%;
+        }
+        .register-content-forms-wrapper {
+          padding-bottom: 120px;
+        }
+        .register-content-or-wrapper {
+          left: 43%;
+        }
+      }
+      /* Screen width max: 768px */
+      @media only screen and (max-width: 768px) {
+        .logo-container {
+          max-width: 170px;
+          margin: 0 35px 0;
+          height: 100%;
+        }
+        .register-content-wrapper {
+          margin: 0 40px;          
+        }
+        .register-content-title-container {
+          margin-top: 15px;
+        }
+        .register-content-title {
+          font-size: 24px;
+        }
+      }
+      @media only screen and (max-width: 767px) {
+        .register-content-or-wrapper {
+          top: unset;
+          bottom: -25px;
+          left: 35%;
+          width: 100px;
+          display: flex;
+          justify-content: center;
+        }
+      }
+      /* Screen width max: 650px */
+      @media only screen and (max-width: 650px) {
+        .market-logo {
+          margin: 20px;
+        }
+      }
+      /* Screen width max: 500px */
+      @media only screen and (max-width: 500px) {
+        .register-content-form-info {
+          padding: 0px 18px;
+        }
+        #api {
+          padding: 0 55px;
+        }
+      }
+      /* Screen width max: 425px */
+      @media only screen and (max-width: 425px) {
+        .register-content-redirect-vendor {
+          font-size: 16px;
+        }
+        .register-content-form-subtitle {
+          font-size: 16px;
+        }
+        .register-content-title {
+          font-size: 22px;
+        }
+        .register-content-wrapper {
+          margin: 0;          
+        }
+        .register-content-title-tooltip {
+          width: auto;
+        }
+        .register-progress-bar {
+          width: auto;
+          margin: 30px 20px 0;
+        }
+         /* are you a vendor tooltip */
+         .register-content-redirect-vendor-tooltip .register-content-tooltip-expand-wrapper {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .register-content-redirect-vendor-tooltip .register-content-tooltip-expand-wrapper:before {
+          left: initial;
+          right: 65px;
+        }
+      }
+      /* Screen width max: 415px */
+      @media only screen and (max-width: 415px) {
+        .register-content-wrapper {
+          margin-top: 80px;
+        }
+      }
+      @media only screen and (max-width: 414px) {
+        .header-wrapper {
+          border-bottom: 1px solid #e7e4e0;
+          background: #fff;
+          z-index: 10;
+          position: fixed;
+          top: 0;
+          left: 0;
+        }
+        .register-content-forms-wrapper {
+          background: #fff;
+          margin-top: 0;
+          padding-top: 40px;
+        }
+        #api {
+          padding: 0 30px 0;
+        }
+      }
+      /* Screen width max: 375px */
+      @media only screen and (max-width: 375px) {
+        .register-content-title {
+          font-size: 20px;
+        }
+      }
+    </style>
+    <div>
+      <div class="header-wrapper">
+        <div class="logo-container">
+          <a id="logo-home">
+            <img
+              alt="Company Logo"
+              class="companyLogo"
+              src="https://images.junipercdn.com/application-assets/juniper-market/images/JuniperMarket-Logo_Horiz_White_Back.svg"
+          /></a>
+        </div>
+        <div class="close-form">
+          <a id="close-form">
+            <img
+              alt="Close"
+              height="40"
+              width="40"
+              src="https://b2cmarketplacedevstorage.blob.core.windows.net/devcontainer/assets/icon-close.svg"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="register-content-wrapper">
+        <!-- SIGNUP TITLE -->
+        <div class="register-content-title-wrapper">                          
+          <div class="register-content-title-container">
+            <div class="register-content-title">
+              <span>sign up as a wholesale buyer</span>
+              <div class="register-content-title-tooltip register-content-tooltip-wrapper"
+                  onclick="showTooltipInfo(this)"
+              >
+                <div><span>?</span></div>
+                <div
+                  data-identificator="tooltipExpanded"
+                  class="register-content-tooltip-expand-wrapper"
+                >
+                  <span>
+                    To be approved as a wholesale buyer, you must present credentials that verify that you are 
+                    eligible to purchase products at wholesale pricing with the intent to resell to consumers.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PROGRESS BAR -->
+        <ul class="register-progress-bar">
+          <li class="register-progress-bar-item">
+            <span class="register-progress-bar-dot register-progress-bar-dot--active">
+            </span>
+            <span class="register-progress-bar-content">
+              sign up
+            </span>
+          </li>
+          <li class="register-progress-bar-item">
+            <span class="register-progress-bar-dot">
+            </span>
+            <span class="register-progress-bar-content">
+              verify account
+            </span>
+          </li>
+          <li class="register-progress-bar-item">
+            <span class="register-progress-bar-dot">
+            </span>
+            <span class="register-progress-bar-content">
+              company info
+            </span>
+          </li>
+          <li class="register-progress-bar-item">
+            <span class="register-progress-bar-dot">
+            </span>
+            <span class="register-progress-bar-content">
+              billing address
+            </span>
+          </li>
+          <li class="register-progress-bar-item">
+            <span class="register-progress-bar-dot">
+            </span>
+            <span class="register-progress-bar-content">
+              shipping address
+            </span>
+          </li>
+        </ul>
+        <!-- SIGNUP CONTENT-->
+        <div class="register-content-forms-wrapper">
+          <!-- FORM -->
+
+          <div class="register-content-form-container">
+            <div class="register-content-form-subtitle">
+              <span>Create an account to source for your store. View wholesale pricing, unlock product details and place orders.</span>
+            </div>
+            <!-- <div class="register-content-form-info">
+              To expedite the approval process, we will try to match your email
+              to any existing buyer accounts from our Atlanta Market, Atlanta
+              Apparel, AmericasMart, High Point Market, or Las Vegas Market
+              registrations.
+            </div> -->
+            <!-- uncomment below to debug style -->
+            <!-- <div id="api" data-name="SelfAsserted">
+              <div class="buttons">
+              </div>
+              <div class="intro">
+                <p>Please provide the following details.</p>
+              </div>
+              <form id="attributeVerification" action="JavaScript:void(0);" _lpchecked="1">
+                <div id="passwordEntryMismatch" class="error pageLevel" style="display: none;" aria-hidden="true">The password entry fields do not match. Please enter the same password in both fields and try again.</div>
+                <div id="requiredFieldMissing" class="error pageLevel" style="display: none;" aria-hidden="true">A required field is missing. Please fill out all required fields and try again.</div>
+                <div id="fieldIncorrect" class="error pageLevel" style="display: none;" aria-hidden="true">One or more fields are filled out incorrectly. Please check your entries and try again.</div>
+                <div id="claimVerificationServerError" class="error pageLevel" style="display: none;" aria-hidden="true"></div>
+                <div id="attributeList" class="attr">
+                  <ul>
+                      <li class="TextBox"><div class="attrEntry"><label id="email_label" for="email">Email Address</label><div class="error itemLevel" role="alert"></div><input id="email" class="textInput" type="text" placeholder="please enter a valid email address" aria-label="Email Address" pattern="^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" title="Email address that can be used to contact you." aria-required="true" autofocus="autofocus" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;"><a class="helpLink tiny" href="javascript:void(0)" data-help="Email address that can be used to contact you.">What is this?</a></div></li>
+                      <li class="Password"><div class="attrEntry"><label id="newPassword_label" for="newPassword">Create Password</label>
+                        <div class="error itemLevel" role="alert"></div>
+                          <input id="newPassword" class="textInput" type="password" placeholder="create password" aria-label="Create Password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*\-_+=[\]{}|\\:',?/`~&quot;();!]|\.(?!@)){8,16}$" title="Enter new password" aria-required="true" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: pointer;"><a class="helpLink tiny" href="javascript:void(0)" data-help="Enter new password">What is this?</a>
+                        </div>
+                      </li>
+                      <li class="Password"><div class="attrEntry"><label id="reenterPassword_label" for="reenterPassword">Confirm Password</label><div class="error itemLevel" role="alert"></div><input id="reenterPassword" class="textInput" type="password" placeholder="confirm password" aria-label="Confirm Password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*\-_+=[\]{}|\\:',?/`~&quot;();!]|\.(?!@)){8,16}$" title="Confirm new password" aria-required="true" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;"><a class="helpLink tiny" href="javascript:void(0)" data-help="Confirm new password">What is this?</a></div></li>
+                      <li class="TextBox"><div class="attrEntry"><label id="givenName_label" for="givenName">first name</label><div class="error itemLevel" role="alert"></div><input id="givenName" class="textInput" type="text" placeholder="first name" aria-label="first name" title="Your first name (also known as given name)."><a class="helpLink tiny" href="javascript:void(0)" data-help="Your first name (also known as given name).">What is this?</a></div></li>
+                      <li class="TextBox"><div class="attrEntry"><label id="surname_label" for="surname">last name</label><div class="error itemLevel" role="alert" aria-hidden="true"></div><input id="surname" class="textInput" type="text" placeholder="last name" aria-label="last name" title="Your last name (also known as family name or surname)."><a class="helpLink tiny" href="javascript:void(0)" data-help="Your last name (also known as family name or surname).">What is this?</a></div></li>
+                      <li class="CheckboxMultiSelect"><div class="attrEntry"><label id="extension_TermsAccepted_label" for="extension_TermsAccepted">Terms Accepted</label><div class="error itemLevel" role="alert"></div><input id="extension_TermsAccepted_true" name="extension_TermsAccepted" type="checkbox" aria-labelledby="extension_TermsAccepted_label extension_TermsAccepted_true_option" value="true"><label id="true_option" for="extension_TermsAccepted_true">by clicking the 'sign up' button, you are creating a JuniperMarket account, and you agree to the
+                    <a class="checkbox-link" href="https://www.junipermarket.com/terms-of-use" target="_blank" rel="noopener noreferrer">Buyer Terms of Use</a>
+                    <span> and </span>
+                    <a class="checkbox-link" href="https://www.imcenters.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                  </label><a class="helpLink tiny" href="javascript:void(0)" data-help="do you accept the terms">What is this?</a></div></li>
+                  </ul>
+                </div>
+                <div class="buttons">
+                  <button id="continue" type="submit" form="attributeVerification" aria-disabled="false" aria-label="sign up as a buyer">sign up as a buyer</button><button id="cancel" aria-label="Cancel" formnovalidate="">Cancel</button>
+                </div>
+          
+                <div class="verifying-modal">
+                  <div id="verifying_blurb"></div>
+                </div>
+              </form>
+              
+            </div> -->
+            <!-- uncomment above to debug style-->
+            <div id="api"></div>
+            <div
+              onclick="showTooltipInfo(this)"
+              id="tooltipWrapper"
+              class="register-content-tooltip-wrapper register-content-tooltip-input"
+            >
+              <div><span>?</span></div>
+              <div
+              data-identificator="tooltipExpanded"
+                class="register-content-tooltip-expand-wrapper"
+              >
+                <span>
+                  password must contain at least 8 characters, 3 characters need
+                  to be a mix of lowercase, uppercase, numbers and symbols.
+                </span>
+              </div>
+            </div>
+            <div id="redirectSignIn" class="register-content-redirect-signin">
+              <div>
+                <span>already have a JuniperMarket account?</span>
+              </div>
+              <div class="register-content-redirect-signin-link">
+                <a id="sign-in-redirect">sign in</a>
+              </div>
+            </div>
+            <div
+              id="redirectToSellerPage"
+              class="register-content-redirect-signin-seller"
+            >
+              <div class="register-content-redirect-vendor">
+                <span>are you a vendor?</span>
+                <div class="register-content-redirect-vendor-tooltip register-content-tooltip-wrapper"
+                  onclick="showTooltipInfo(this)"
+                >
+                  <div><span>?</span></div>
+                  <div
+                    data-identificator="tooltipExpanded"
+                    class="register-content-tooltip-expand-wrapper"
+                  >
+                    <span>
+                      A vendor is a brand that manufactures or represents products to be sold via wholesale pricing to retailers or designers. 
+                      To sell your products on <a class="register-content-tooltip-link" href="https://www.junipermarket.com/" target="_blank">JuniperMarket.com</a> please 
+                      <a href="https://www.junipermarket.com/sell-on-juniper-market" class="register-content-tooltip-link" target="_blank">click here</a> to learn more and apply to sell.
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="register-content-redirect-signin-seller-link">
+                <a id="sign-in-seller-redirect">
+                  apply to sell your products on junipermarket
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-wrapper">
+        <a
+          href="https://junipermarket.zendesk.com/hc/en-us"
+          target="_blank"
+        >
+          help &amp; support
+        </a>
+      </div>
+    </div>
+
+    <script>
+      function parseUrl() {
+        try {
+          let params = window.location.search;
+          let redirect = params
+            .split("&")
+            .filter((u) => u.includes("redirect_uri"))[0];
+          let home = decodeURIComponent(redirect.split("=")[1]);
+          let pathUrl = new URL(home);
+          return pathUrl.origin;
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      if (!localStorage.getItem("redirect-url")) {
+        var parsedURL = parseUrl();
+        localStorage.setItem("redirect-url", parsedURL);
+        document.cookie = `redirect-url=${parsedURL}`;
+      }
+
+      let redirectUrl = localStorage.getItem("redirect-url");
+      document
+        .getElementById("sign-in-redirect")
+        .setAttribute("href", `${redirectUrl}/auth/login-redirect`);
+      document
+        .getElementById("sign-in-seller-redirect")
+        .setAttribute("href", `${redirectUrl}/sell-on-juniper-market`);
+      document.getElementById("logo-home").setAttribute("href", redirectUrl);
+      document.getElementById("close-form").setAttribute("href", redirectUrl);
+
+      var node = document.getElementById("tooltipWrapper");
+
+      var node2 = document.getElementById("redirectSignIn");
+
+      var node3 = document.getElementById("redirectToSellerPage");
+
+      document
+        .getElementById("newPassword")
+        .insertAdjacentElement("beforebegin", node);
+      document
+        .getElementById("continue")
+        .insertAdjacentElement("beforebegin", node2);
+      document
+        .getElementById("redirectSignIn")
+        .insertAdjacentElement("beforebegin", node3);
+
+      document.getElementById("email").placeholder = "business email address";
+      document.getElementById("newPassword").placeholder = "create password";
+      document.getElementById("reenterPassword").placeholder =
+        "confirm password";
+      document.getElementById("givenName").placeholder = "first name";
+      document.getElementById("surname").placeholder = "last name";
+
+      document.querySelector("#continue").innerText = "sign up";
+      document
+        .querySelector("#continue")
+        .setAttribute("aria-label", "sign up");
+
+      function showTooltipInfo(node) {
+        var element = node.querySelector('[data-identificator="tooltipExpanded"]');
+        if (!element.classList.contains('clicked')) {
+          element.classList.add('clicked');
+        } else {
+          element.classList.remove('clicked');
+        }
+      }
+
+      const checkBoxText = document.querySelector(
+        'label[for="extension_TermsAccepted_true"]'
+      );
+      //update after beta
+      const checkBoxLinks = `
+					<a class="checkbox-link" href="https://www.junipermarket.com/terms-of-use" target="_blank" rel="noopener noreferrer">Buyer Terms of Use</a>
+					<span> and </span>
+					<a class="checkbox-link" href="https://www.imcenters.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+				`;
+      checkBoxText.innerHTML += checkBoxLinks;
+    </script>
+  </body>
+</html>
