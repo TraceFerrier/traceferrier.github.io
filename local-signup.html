@@ -930,9 +930,6 @@
         }
 
         let redirectUrl = localStorage.getItem("redirect-url");
-        document
-            .getElementById("sign-in-redirect")
-            .setAttribute("href", `${redirectUrl}/auth/login-redirect`);
         document.getElementById("logo-home").setAttribute("href", redirectUrl);
         document.getElementById("close-form").setAttribute("href", redirectUrl);
 
