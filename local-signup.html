@@ -776,7 +776,7 @@
             <div class="register-content-title-wrapper">
                 <div class="register-content-title-container">
                     <div class="register-content-title">
-                        <span>sign up as a wholesale buyer B</span>
+                        <span>sign up as a wholesale buyer C</span>
                         <div class="register-content-title-tooltip register-content-tooltip-wrapper"
                              onclick="showTooltipInfo(this)">
                             <div><span>?</span></div>
@@ -897,14 +897,6 @@
                             </span>
                         </div>
                     </div>
-                    <div id="redirectSignIn" class="register-content-redirect-signin">
-                        <div>
-                            <span>already have a JuniperMarket account?</span>
-                        </div>
-                        <div class="register-content-redirect-signin-link">
-                            <a id="sign-in-redirect">sign in</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -946,14 +938,9 @@
 
         var node = document.getElementById("tooltipWrapper");
 
-        var node2 = document.getElementById("redirectSignIn");
-
         document
             .getElementById("newPassword")
             .insertAdjacentElement("beforebegin", node);
-        document
-            .getElementById("continue")
-            .insertAdjacentElement("beforebegin", node2);
 
         document.getElementById("email").placeholder = "business email address";
         document.getElementById("newPassword").placeholder = "create password";
